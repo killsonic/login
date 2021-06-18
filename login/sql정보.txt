@@ -1,0 +1,52 @@
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| pythondb           |
+| pythonlogin        |
+| test               |
++--------------------+
+6 rows in set (0.01 sec)
+
+MariaDB [(none)]>
+
+MariaDB [pythonlogin]> show tables;
++-----------------------+
+| Tables_in_pythonlogin |
++-----------------------+
+| accounts              |
++-----------------------+
+1 row in set (0.00 sec)
+
+MariaDB [pythonlogin]>
+MariaDB [pythonlogin]> select * from accounts;
++----+----------+--------------------------------------------------------------+---------------+-------------+---------+----------------            -----+
+| id | username | password                                                     | email         | fromip      | remark1 | regdate                         |
++----+----------+--------------------------------------------------------------+---------------+-------------+---------+----------------            -----+
+|  1 | test     | test                                                         | test@test.com | 192.2.1.100 |         | 2021-06-17 13:4            6:50 |
+|  2 | 1        | $2b$12$T262rUTDvhHL7gvzqlQ1r.ynI91smD27OIQcc9eLuBjgaQnOIBA7u | 1@1           | 192.2.1.100 |         | 2021-06-17 15:1            3:37 |
+|  3 | 3        | $2b$12$XDgOJENVFwPCpgnoho3cyOe315B9Ij6ENd5MuCif4PgAFFYmfIqci | 3@3           | 192.2.1.100 |         | 2021-06-17 15:1            4:50 |
+|  4 | 10       | 10                                                           | 10@10         | 192.2.1.100 |         | 2021-06-17 16:1            9:52 |
++----+----------+--------------------------------------------------------------+---------------+-------------+---------+----------------            -----+
+4 rows in set (0.00 sec)
+
+MariaDB [pythonlogin]>
+MariaDB [pythonlogin]> describe accounts
+    -> ;
++----------+--------------+------+-----+-------------------+-----------------------------+
+| Field    | Type         | Null | Key | Default           | Extra                       |
++----------+--------------+------+-----+-------------------+-----------------------------+
+| id       | int(11)      | NO   | PRI | NULL              | auto_increment              |
+| username | varchar(50)  | NO   |     | NULL              |                             |
+| password | varchar(100) | NO   |     | NULL              |                             |
+| email    | varchar(100) | NO   |     | NULL              |                             |
+| fromip   | varchar(20)  | NO   |     | NULL              |                             |
+| remark1  | varchar(50)  | NO   |     | NULL              |                             |
+| regdate  | timestamp    | NO   |     | CURRENT_TIMESTAMP | on update CURRENT_TIMESTAMP |
++----------+--------------+------+-----+-------------------+-----------------------------+
+7 rows in set (0.01 sec)
+
+MariaDB [pythonlogin]>
